@@ -16,7 +16,7 @@ local RS = game:GetService("RunService")
     off. The part should cover the clickable area
     - If you're using "object" then all the Objects need to have the same name
     and be in a folder in workspace called Objects.
-    - If you're using "frame" then you'll need to make sure the zindex layer of
+    - If you're using "iframe" then you'll need to make sure the zindex layer of
     ALL of your ui is set to a value greater than 1 as the clickbox should be on
     the lowest layer.
 ]]
@@ -56,7 +56,7 @@ local function renderClicks()
         else
             error("Your clickMethod is set to "Object" but you are missing a Object folder")
         end
-    elseif clickMethod == "frame" then
+    elseif clickMethod == "iframe" then
         local frameParent = Instance.new("ScreenGui")
         frameParent.Parent = PlayerGui
         frameParent.Name = "SimulatorObjectParent"
@@ -96,7 +96,7 @@ RunService.RenderStepped:Connect(function()
                 end
             end
         end
-    elseif clickMethod == "frame" then
+    elseif clickMethod == "iframe" then
         PlayerGui.SimulatorObjectParent.SimulatorObject.MouseButton1Click:Connect(onClick)
     end
 end)
